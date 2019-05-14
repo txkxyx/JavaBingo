@@ -1,3 +1,5 @@
+package battle;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -22,6 +24,10 @@ public class BingoCard {
 		numbers[2][2] = 0;
 	}
 
+	public String getPlayerName() {
+		return playerName;
+	}
+
 	public void showCard() {
 		System.out.printf("*-%s-*\n", playerName);
 		System.out.println(" | 1| 2| 3| 4| 5|");
@@ -44,8 +50,7 @@ public class BingoCard {
 			for (int j = 0; j < 5; j++) {
 				if (numbers[i][j] == number) {
 					numbers[i][j] = 0;
-					System.out.println("Hit");
-					showCard();
+					System.out.printf("%s : Hit\n", playerName);
 				}
 			}
 		}
@@ -54,19 +59,16 @@ public class BingoCard {
 
 	private boolean checkBingo() {
 		if (checkVertical()) {
-			System.out.println("Bingo");
+
 			return true;
 		}
 		if (checkHorizontal()) {
-			System.out.println("Bingo");
 			return true;
 		}
 		if (checkLeftCross()) {
-			System.out.println("Bingo");
 			return true;
 		}
 		if (checkRightCross()) {
-			System.out.println("Bingo");
 			return true;
 		}
 		return false;
@@ -81,7 +83,10 @@ public class BingoCard {
 				}
 			}
 			if (count == 5) {
+				System.out.printf("%s : Bingo\n", playerName);
 				return true;
+			} else if (count == 4) {
+				System.out.printf("%s : Reach\n", playerName);
 			}
 		}
 		return false;
@@ -97,7 +102,10 @@ public class BingoCard {
 				}
 			}
 			if (count == 5) {
+				System.out.printf("%s : Bingo\n", playerName);
 				return true;
+			} else if (count == 4) {
+				System.out.printf("%s : Reach\n", playerName);
 			}
 		}
 		return false;
@@ -111,7 +119,11 @@ public class BingoCard {
 			}
 		}
 		if (count == 5) {
+			System.out.printf("%s : Bingo\n", playerName);
 			return true;
+		} else if (count == 4) {
+			System.out.printf("%s : Reach\n", playerName);
+			return false;
 		} else {
 			return false;
 		}
@@ -125,7 +137,11 @@ public class BingoCard {
 			}
 		}
 		if (count == 5) {
+			System.out.printf("%s : Bingo\n", playerName);
 			return true;
+		} else if (count == 4) {
+			System.out.printf("%s : Reach\n", playerName);
+			return false;
 		} else {
 			return false;
 		}

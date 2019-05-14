@@ -1,3 +1,4 @@
+package bingo;
 import java.util.Scanner;
 
 public class Main {
