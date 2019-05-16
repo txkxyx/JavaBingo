@@ -22,16 +22,21 @@ public class BingoBattle {
 		}
 
 		Scanner scanner = new Scanner(System.in);
-
+		int rank = 1;
 		while (true) {
 			System.out.print("next > ");
 			String input = scanner.nextLine();
 			int number = drawer.drawNumber();
 			for (int i = 0; i < bingoCardList.length; i++) {
-				boolean bol = bingoCardList[i].checkNumber(number);
-				if (bol) {
-					System.out.printf("%sさん%d位です。", bingoCardList[i].getPlayerName(), 1);
-					return;
+				if (!bingoCardList[i].getBingo()) {
+					boolean bol = bingoCardList[i].checkNumber(number);
+					if (bol) {
+						System.out.printf("%sさん%d位です。\n", bingoCardList[i].getPlayerName(), rank);
+						if (members == rank) {
+							return;
+						}
+						rank++;
+					}
 				}
 			}
 		}

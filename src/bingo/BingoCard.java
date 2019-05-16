@@ -1,4 +1,5 @@
 package bingo;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -28,7 +29,7 @@ public class BingoCard {
 		System.out.println(" | 1| 2| 3| 4| 5|");
 		System.out.println("------------------");
 		for (int i = 0; i < 5; i++) {
-			System.out.printf("%d|", i);
+			System.out.printf("%d|", i + 1);
 			for (int j = 0; j < 5; j++) {
 				if (numbers[i][j] == 0) {
 					System.out.printf("%2s|", "●");
